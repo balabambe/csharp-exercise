@@ -2,7 +2,13 @@
 
 public class GuessNumberInRange
 {
-	public static void Input()
+    public static string title = "猜數字 GuessNumberInRange.cs";
+    public static string getTitle()
+    {
+        return title;
+    }
+
+    public static void Go()
 	{
         Console.Write($"請輸入起始數字[1]: ");
         int beginNumber = setNumber(1);

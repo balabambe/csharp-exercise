@@ -1,32 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
 
-namespace ConsoleApp2
+
+class MainClass
 {
-    class MainClass
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        List<string> myClasses = new List<string>();
+        myClasses.Add("Steps");
+        myClasses.Add("WhileExercise");
+        myClasses.Add("ConsoleInput");
+        myClasses.Add("GuessNumberInRange");
+        myClasses.Add("ArrayOrdering");
+        myClasses.Add("LottoRandNum");
+
+        int i = 0;
+        foreach (string myClass in myClasses)
         {
-            Console.WriteLine($"程式1: 計算階梯的高度 Steps.cs");
-            Console.WriteLine($"程式2: 找出 300 的公因數 WhileExercise.cs");
-            Console.WriteLine($"程式3: ConsoleInput.cs");
-            Console.WriteLine($"程式4: 猜數字");
-            Console.Write($"請輸入要執行的程式: ");
-            string value = Console.ReadLine();
-            switch(value)
-            {
-                case "1":
-                    Steps.MainStep();
-                    break;
-                case "2":
-                    WhileExercise.Divisor();
-                    break;
-                case "3":
-                    ConsoleInput.Input();
-                    break;
-                case "4":
-                    GuessNumberInRange.Input();
-                    break;
-            }
+            i++;
+            var title = InvokeMyClass(myClass, "getTitle");
+            Console.WriteLine($"程式{i}: {title}");
         }
+        Console.Write($"請輸入要執行的程式: ");
+
+        string value = Console.ReadLine();
+        int option;
+        try
+        {
+            option = Convert.ToInt32(value);
+            InvokeMyClass(myClasses[option - 1], "Go");
+        }
+        catch
+        {
+            return;
+        }
+    }
+
+    static object InvokeMyClass(string className, string methodName)
+    {
+        Type t = Type.GetType(className);
+        object o = Activator.CreateInstance(t);
+        MethodInfo mi = t.GetMethod(methodName);
+        return mi.Invoke(o, null);
     }
 }

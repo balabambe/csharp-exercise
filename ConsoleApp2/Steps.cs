@@ -5,42 +5,46 @@
 /// 我們希望一階的高度介於 15cm ~ 20cm，階數大約介於 14 ~ 18 階之間
 /// </summary>
 
-namespace ConsoleApp2
+class Steps
 {
-    class Steps
+    public static string title = "計算階梯的高度 Steps.cs";
+
+    public static string getTitle()
     {
-        public static void MainStep()
-        {
-            int maxHeight = 280;
-            int step = 1;
-            decimal avgHeight = calcAvgHeight(maxHeight, step);
-            runStep(maxHeight, step, avgHeight);
-        }
+        return title;
+    }
 
-        static bool runStep(int maxHeight, int step, decimal avgHeight)
-        {
-            if (avgHeight <= 15)
-            {
-                return true;
-            }
-            if (avgHeight <= 20)
-            {
-                Console.WriteLine($"Step: {step}, StepHeight: {avgHeight}");
-            }
-            if (avgHeight >= 15)
-            {
-                step++;
-                avgHeight = calcAvgHeight(maxHeight, step);
-                return runStep(maxHeight, step, avgHeight);
-            }
+    public static void Go()
+    {
+        int maxHeight = 280;
+        int step = 1;
+        decimal avgHeight = calcAvgHeight(maxHeight, step);
+        runStep(maxHeight, step, avgHeight);
+    }
 
+    static bool runStep(int maxHeight, int step, decimal avgHeight)
+    {
+        if (avgHeight <= 15)
+        {
             return true;
         }
-
-        static decimal calcAvgHeight(int height, int step)
+        if (avgHeight <= 20)
         {
-            return (decimal)height / (decimal)step;
+            Console.WriteLine($"Step: {step}, StepHeight: {avgHeight}");
+        }
+        if (avgHeight >= 15)
+        {
+            step++;
+            avgHeight = calcAvgHeight(maxHeight, step);
+            return runStep(maxHeight, step, avgHeight);
         }
 
+        return true;
     }
+
+    static decimal calcAvgHeight(int height, int step)
+    {
+        return (decimal)height / (decimal)step;
+    }
+
 }
