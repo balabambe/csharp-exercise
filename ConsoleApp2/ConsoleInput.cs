@@ -4,11 +4,11 @@ public class ConsoleInput
 {
 
 	public static string title = "Console Input 練習 ConsoleInput.cs";
-	public static string getTitle()
+	public static string GetTitle()
 	{
 		return title;
 	}
-	public static void Go()
+	public static void Run()
 	{
 		InputLine();
 	}

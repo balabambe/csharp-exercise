@@ -9,12 +9,12 @@ class Steps
 {
     public static string title = "計算階梯的高度 Steps.cs";
 
-    public static string getTitle()
+    public static string GetTitle()
     {
         return title;
     }
 
-    public static void Go()
+    public static void Run()
     {
         int maxHeight = 280;
         int step = 1;

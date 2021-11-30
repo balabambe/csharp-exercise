@@ -3,12 +3,12 @@
 public class GuessNumberInRange
 {
     public static string title = "猜數字 GuessNumberInRange.cs";
-    public static string getTitle()
+    public static string GetTitle()
     {
         return title;
     }
 
-    public static void Go()
+    public static void Run()
 	{
         Console.Write($"請輸入起始數字[1]: ");
         int beginNumber = setNumber(1);

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 public class ArrayOrdering
 {
 	public static string title = "陣列值排序 ArrayOrdering.cs";
-    public static string getTitle()
+    public static string GetTitle()
     {
         return title;
     }
-    public static void Go()
+    public static void Run()
 	{
         List<int> numbers = inputNumbers();
 

@@ -3,12 +3,12 @@
 class LottoRandNum
 {
     public static string title = "樂透開獎練習 LottoRandNum.cs";
-    public static string getTitle()
+    public static string GetTitle()
     {
         return title;
     }
 
-    public static void Go()
+    public static void Run()
     {
         M1();
         M2();

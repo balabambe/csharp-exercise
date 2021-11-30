@@ -20,7 +20,7 @@ class MainClass
         foreach (string myClass in myClasses)
         {
             i++;
-            var title = InvokeMyClass(myClass, "getTitle");
+            var title = InvokeMyClass(myClass, "GetTitle");
             Console.WriteLine($"程式{i}: {title}");
         }
         Console.Write($"請輸入要執行的程式: ");
@@ -30,7 +30,8 @@ class MainClass
         try
         {
             option = Convert.ToInt32(value);
-            InvokeMyClass(myClasses[option - 1], "Go");
+            InvokeMyClass(myClasses[option - 1], "Run" +
+                "31");
         }
         catch
         {
