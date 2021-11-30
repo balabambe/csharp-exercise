@@ -30,8 +30,7 @@ class MainClass
         try
         {
             option = Convert.ToInt32(value);
-            InvokeMyClass(myClasses[option - 1], "Run" +
-                "31");
+            InvokeMyClass(myClasses[option - 1], "Run");
         }
         catch
         {
