@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 class LottoRandNum
 {
@@ -10,43 +11,48 @@ class LottoRandNum
 
     public static void Run()
     {
-        M1();
-        M2();
-    }
-
-    static void M2()
-    {
-        DisplayHeader("M2");
-        int[] result = new int[6];
-        //todo
-
-        foreach (var item in result)
+        List<int> lottos = M1();
+        DisplayHeader("Lotto Numbers:");
+        foreach (var item in lottos)
         {
             Console.WriteLine(item);
         }
     }
-    static void M1()
+
+    static List<int> M1()
     {
-        DisplayHeader("M1");
-
-        int[] items = SetUpNumbers();
-        int[] result = Shuffle(items);
-
+        List<int> items = SetUpNumbers();
+        List<int> result = Shuffle(items);
+        List<int> numbers = new List<int> { };
         for(int i=0; i<6; i++)
         {
-            Console.WriteLine(result[i]);
+            numbers.Add(result[i]);
         }
+        return numbers;
 
     }
-    private static int[] Shuffle(int[] items)
+    private static List<int> Shuffle(List<int> items)
     {
-        //todo
-        throw new NotImplementedException();
+        Random rand = new Random();
+        int leng = items.Count - 1;
+        int temp;
+        for (int i = leng; i > 0; i--)
+        {
+            int randNum = rand.Next(0, i + 1);
+            temp = items[i];
+            items[i] = items[randNum];
+            items[randNum] = temp;
+        }
+        return items;
     }
-    private static int[] SetUpNumbers()
+    private static List<int> SetUpNumbers()
     {
-        //todo
-        throw new NotImplementedException();
+        List<int> numbers = new List<int> { };
+        for(var i = 1; i <= 42; i++)
+        {
+            numbers.Add(i);
+        }
+        return numbers;
     }
     static void DisplayHeader(string title)
     {
