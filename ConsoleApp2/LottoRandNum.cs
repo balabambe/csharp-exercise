@@ -35,11 +35,12 @@ class LottoRandNum
     {
         Random rand = new Random();
         int leng = items.Count - 1;
-        int temp;
+
+        // Use Fisher-Yates Algorithm
         for (int i = leng; i > 0; i--)
         {
             int randNum = rand.Next(0, i + 1);
-            temp = items[i];
+            int temp = items[i];
             items[i] = items[randNum];
             items[randNum] = temp;
         }
