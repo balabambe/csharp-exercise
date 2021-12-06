@@ -16,6 +16,7 @@ class MainClass
         myClasses.Add("ArrayOrdering");
         myClasses.Add("LottoRandNum");
         myClasses.Add("ReverseLetters");
+        myClasses.Add("VerifyDates");
 
         int i = 0;
         foreach (string myClass in myClasses)
