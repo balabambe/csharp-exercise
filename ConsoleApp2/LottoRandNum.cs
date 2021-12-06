@@ -24,7 +24,7 @@ class LottoRandNum
         List<int> items = SetUpNumbers();
         List<int> result = Shuffle(items);
         List<int> numbers = new List<int> { };
-        for(int i=0; i<6; i++)
+        for (int i = 0; i < 6; i++)
         {
             numbers.Add(result[i]);
         }
@@ -48,7 +48,7 @@ class LottoRandNum
     private static List<int> SetUpNumbers()
     {
         List<int> numbers = new List<int> { };
-        for(var i = 1; i <= 42; i++)
+        for (var i = 1; i <= 42; i++)
         {
             numbers.Add(i);
         }

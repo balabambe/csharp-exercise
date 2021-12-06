@@ -15,6 +15,7 @@ class MainClass
         myClasses.Add("GuessNumberInRange");
         myClasses.Add("ArrayOrdering");
         myClasses.Add("LottoRandNum");
+        myClasses.Add("ReverseLetters");
 
         int i = 0;
         foreach (string myClass in myClasses)
