@@ -20,13 +20,13 @@ class ReverseLetters
     static string Reverse(string source)
     {
         int len = source.Length;
-        List<char> stringToIntList = new List<char>{ };
+        List<char> reverseStrings = new List<char>{ };
         for (int i = len - 1; i >= 0; i--)
         {
             char letter = source[i];
-            stringToIntList.Add(letter);
+            reverseStrings.Add(letter);
         }
-        return String.Join("", stringToIntList);
+        return String.Join("", reverseStrings);
     }
 
 }
