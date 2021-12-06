@@ -11,7 +11,8 @@ class ReverseLetters
 
     public static void Run()
     {
-        string source = "ABCDEFG";
+        Console.Write("請輸入一串字串：");
+        string source = Console.ReadLine();
         string result = Reverse(source);
         Console.WriteLine(result);
     }
@@ -19,42 +20,13 @@ class ReverseLetters
     static string Reverse(string source)
     {
         int len = source.Length;
-        List<int> stringToIntList = new List<int>{ };
-        List<char> intListToString = new List<char>{ };
-        for (int i = 0; i < len; i++)
+        List<char> stringToIntList = new List<char>{ };
+        for (int i = len - 1; i >= 0; i--)
         {
-            int letter = source[i];
+            char letter = source[i];
             stringToIntList.Add(letter);
         }
-        SwapNumbers(stringToIntList);
-        for (int i = 0; i < stringToIntList.Count; i++)
-        {
-            intListToString.Add((char)stringToIntList[i]);
-        }
-        return String.Join("", intListToString.ToArray());
+        return String.Join("", stringToIntList);
     }
 
-    static void SwapNumbers(List<int> num)
-    {
-        int len = num.Count;
-        bool swaped;
-        do
-        {
-            swaped = false;
-            for (int i = 0; i < len; i++)
-            {
-                if (i == len - 1)
-                {
-                    break;
-                }
-                if (num[i] < num[i + 1])
-                {
-                    int temp = num[i];
-                    num[i] = num[i + 1];
-                    num[i + 1] = temp;
-                    swaped = true;
-                }
-            }
-        } while (swaped);
-    }
 }
